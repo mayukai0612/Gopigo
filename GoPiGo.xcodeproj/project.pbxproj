@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A851EF21DCF3CBB00646B74 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A851EF11DCF3CBB00646B74 /* test.swift */; };
 		2AA605EC1DB78CF70006F500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA605EB1DB78CF70006F500 /* AppDelegate.swift */; };
 		2AA605EE1DB78CF70006F500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA605ED1DB78CF70006F500 /* ViewController.swift */; };
 		2AA605F11DB78CF70006F500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA605EF1DB78CF70006F500 /* Main.storyboard */; };
 		2AA605F41DB78CF70006F500 /* GoPiGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AA605F21DB78CF70006F500 /* GoPiGo.xcdatamodeld */; };
 		2AA605F61DB78CF70006F500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA605F51DB78CF70006F500 /* Assets.xcassets */; };
 		2AA605F91DB78CF70006F500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA605F71DB78CF70006F500 /* LaunchScreen.storyboard */; };
+		2AA606021DB847E90006F500 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA606011DB847E90006F500 /* Color.swift */; };
+		2AA606061DBC5CE30006F500 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA606051DBC5CE30006F500 /* SensorsViewController.swift */; };
+		2AA606081DBDED5C0006F500 /* GopigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA606071DBDED5C0006F500 /* GopigoView.swift */; };
+		2ADEDE041DC0B90C005972DA /* MoveControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEDE031DC0B90C005972DA /* MoveControl.swift */; };
+		2ADEDE061DC3566F005972DA /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEDE051DC3566F005972DA /* AnalogJoystick.swift */; };
+		2ADEDE081DC4619D005972DA /* GopigoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEDE071DC4619D005972DA /* GopigoScene.swift */; };
+		58C8B1F5AB817BC08846663F /* Pods_GoPiGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6231069A710B92C11ECDA90A /* Pods_GoPiGo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A851EF11DCF3CBB00646B74 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		2AA605E81DB78CF70006F500 /* GoPiGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPiGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA605EB1DB78CF70006F500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AA605ED1DB78CF70006F500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,15 @@
 		2AA605F51DB78CF70006F500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA605F81DB78CF70006F500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA605FA1DB78CF70006F500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA606011DB847E90006F500 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2AA606051DBC5CE30006F500 /* SensorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
+		2AA606071DBDED5C0006F500 /* GopigoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopigoView.swift; sourceTree = "<group>"; };
+		2ADEDE031DC0B90C005972DA /* MoveControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveControl.swift; sourceTree = "<group>"; };
+		2ADEDE051DC3566F005972DA /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
+		2ADEDE071DC4619D005972DA /* GopigoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopigoScene.swift; sourceTree = "<group>"; };
+		6231069A710B92C11ECDA90A /* Pods_GoPiGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoPiGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98581C5FEF550DE65DA377F0 /* Pods-GoPiGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoPiGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoPiGo/Pods-GoPiGo.debug.xcconfig"; sourceTree = "<group>"; };
+		DE3F89DB72302B9C805C3377 /* Pods-GoPiGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoPiGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoPiGo/Pods-GoPiGo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C8B1F5AB817BC08846663F /* Pods_GoPiGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				2AA605EA1DB78CF70006F500 /* GoPiGo */,
 				2AA605E91DB78CF70006F500 /* Products */,
+				876CAE7930212752E9811B39 /* Pods */,
+				7BF920691BF14ADF95E66990 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +77,10 @@
 		2AA605EA1DB78CF70006F500 /* GoPiGo */ = {
 			isa = PBXGroup;
 			children = (
+				2ADEDE021DC0B8DD005972DA /* RobotControl */,
+				2AA606041DBC5CA90006F500 /* Camera */,
+				2AA606031DBC5C9E0006F500 /* Sensors */,
+				2AA606001DB847CA0006F500 /* Utilities */,
 				2AA605EB1DB78CF70006F500 /* AppDelegate.swift */,
 				2AA605ED1DB78CF70006F500 /* ViewController.swift */,
 				2AA605EF1DB78CF70006F500 /* Main.storyboard */,
@@ -67,6 +92,59 @@
 			path = GoPiGo;
 			sourceTree = "<group>";
 		};
+		2AA606001DB847CA0006F500 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2AA606011DB847E90006F500 /* Color.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		2AA606031DBC5C9E0006F500 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				2AA606051DBC5CE30006F500 /* SensorsViewController.swift */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		2AA606041DBC5CA90006F500 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2AA606071DBDED5C0006F500 /* GopigoView.swift */,
+				2ADEDE071DC4619D005972DA /* GopigoScene.swift */,
+				2A851EF11DCF3CBB00646B74 /* test.swift */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		2ADEDE021DC0B8DD005972DA /* RobotControl */ = {
+			isa = PBXGroup;
+			children = (
+				2ADEDE031DC0B90C005972DA /* MoveControl.swift */,
+				2ADEDE051DC3566F005972DA /* AnalogJoystick.swift */,
+			);
+			name = RobotControl;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		7BF920691BF14ADF95E66990 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6231069A710B92C11ECDA90A /* Pods_GoPiGo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		876CAE7930212752E9811B39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98581C5FEF550DE65DA377F0 /* Pods-GoPiGo.debug.xcconfig */,
+				DE3F89DB72302B9C805C3377 /* Pods-GoPiGo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AA605FD1DB78CF70006F500 /* Build configuration list for PBXNativeTarget "GoPiGo" */;
 			buildPhases = (
+				E0D9CABAD8A2BC307C9AFFAE /* [CP] Check Pods Manifest.lock */,
 				2AA605E41DB78CF70006F500 /* Sources */,
 				2AA605E51DB78CF70006F500 /* Frameworks */,
 				2AA605E61DB78CF70006F500 /* Resources */,
+				1849869730FEC857314E4122 /* [CP] Embed Pods Frameworks */,
+				3C4A67AC8B5078DAFCC694BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,13 +216,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1849869730FEC857314E4122 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoPiGo/Pods-GoPiGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C4A67AC8B5078DAFCC694BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoPiGo/Pods-GoPiGo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0D9CABAD8A2BC307C9AFFAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AA605E41DB78CF70006F500 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADEDE041DC0B90C005972DA /* MoveControl.swift in Sources */,
+				2ADEDE061DC3566F005972DA /* AnalogJoystick.swift in Sources */,
 				2AA605EE1DB78CF70006F500 /* ViewController.swift in Sources */,
+				2A851EF21DCF3CBB00646B74 /* test.swift in Sources */,
+				2AA606061DBC5CE30006F500 /* SensorsViewController.swift in Sources */,
+				2AA606021DB847E90006F500 /* Color.swift in Sources */,
+				2AA606081DBDED5C0006F500 /* GopigoView.swift in Sources */,
 				2AA605F41DB78CF70006F500 /* GoPiGo.xcdatamodeld in Sources */,
+				2ADEDE081DC4619D005972DA /* GopigoScene.swift in Sources */,
 				2AA605EC1DB78CF70006F500 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +399,12 @@
 		};
 		2AA605FE1DB78CF70006F500 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98581C5FEF550DE65DA377F0 /* Pods-GoPiGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CLJQ632586;
 				INFOPLIST_FILE = GoPiGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = monash.GoPiGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,10 +414,12 @@
 		};
 		2AA605FF1DB78CF70006F500 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3F89DB72302B9C805C3377 /* Pods-GoPiGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CLJQ632586;
 				INFOPLIST_FILE = GoPiGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = monash.GoPiGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +446,7 @@
 				2AA605FF1DB78CF70006F500 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
