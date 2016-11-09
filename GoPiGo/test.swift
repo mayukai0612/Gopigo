@@ -33,21 +33,21 @@ class test: UIViewController,UIWebViewDelegate {
         
         // Prepare URL request and pass to web view
         let url = NSURL(string: "http://www.google.com")
-        let request = NSURLRequest(url: url! as URL)
-        self.webview.loadRequest(request as URLRequest)
+        let request = NSURLRequest(URL: url!)
+        self.webview.loadRequest(request)
         //  }
     }
     
     
     // MARK: - UIWebViewDelegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webViewDidStartLoad(webView: UIWebView) {
         // Indicate that app is using the network
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //UIApplication.sharedApplication().isNetworkActivityIndicatorVisible = true
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         // Indicate app has finished using network
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+      //  UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         // Update title to use page title
         // self.title = webView.stringByEvaluatingJavaScript(from: "document.title")

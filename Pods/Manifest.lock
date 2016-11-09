@@ -1,0 +1,15 @@
+PODS:
+  - SwiftMQTT (1.0.2)
+  - WSCoachMarksView (0.2)
+
+DEPENDENCIES:
+  - SwiftMQTT
+  - WSCoachMarksView (~> 0.2)
+
+SPEC CHECKSUMS:
+  SwiftMQTT: 43d17c8b49c77927530607b9d5fd836d02889cf1
+  WSCoachMarksView: d1653c058c8289a300ddf28af9dd49eb659c9c42
+
+PODFILE CHECKSUM: 8f8712d838dd3bb20115e1c930c911f5ccc5a358
+
+COCOAPODS: 1.2.0.beta.1

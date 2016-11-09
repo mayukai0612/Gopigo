@@ -28,10 +28,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbarTintColor = UIColor(red: 0, green: 204, blue: 255)
         UITabBar.appearance().tintColor = tabbarTintColor
         
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(
+                forTypes: [.Alert, .Badge, .Sound],
+                categories: nil))
+        
+       // UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    
+    func createLocalNotifications(message:String)
+    {
+        // Show an alert if application is active
+        if UIApplication.sharedApplication().applicationState == .Active {
+            
+                if let viewController = window?.rootViewController {
+                    showAlert(nil, message: message, viewController: viewController)
+                }
+            
+        } else {
+            // Otherwise present a local notification
+            let notification = UILocalNotification()
+            notification.alertBody = "Fire alarm"
+            notification.soundName = "Default";
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        }
+        
+//        let fireNotification = UILocalNotification()
+//       // fireNotification.fireDate = NSDate(timeInterval: 1)
+//        fireNotification.applicationIconBadgeNumber = 1
+//        fireNotification.soundName =  "Default"
+//        
+//        fireNotification.userInfo = ["message":"Fire alarm!"]
+//        fireNotification.alertBody = "Fire alarm"
+//        UIApplication.sharedApplication().presentLocalNotificationNow(fireNotification)
+        
+    }
+    
+    func showAlert(title: String!,message: String,viewController: UIViewController) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        alert.addAction(action)
+        viewController.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
@@ -55,6 +98,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        if let rootViewController = self.topViewControllerWithRootViewController(window?.rootViewController) {
+            if (rootViewController.respondsToSelector(Selector("canRotate"))) {
+                // Unlock landscape view orientations for this view controller
+                return .Landscape;
+            }
+        }
+        
+        // Only allow portrait (standard behaviour)
+        return .Portrait;
+    }
+    
+    private func topViewControllerWithRootViewController(rootViewController: UIViewController!) -> UIViewController? {
+        if (rootViewController == nil) { return nil }
+        if (rootViewController.isKindOfClass(UITabBarController)) {
+            return topViewControllerWithRootViewController((rootViewController as! UITabBarController).selectedViewController)
+        } else if (rootViewController.isKindOfClass(UINavigationController)) {
+            return topViewControllerWithRootViewController((rootViewController as! UINavigationController).visibleViewController)
+        } else if (rootViewController.presentedViewController != nil) {
+            return topViewControllerWithRootViewController(rootViewController.presentedViewController)
+        }
+        return rootViewController
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -65,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "GoPiGo")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStoresWithCompletionHandler({ (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -100,5 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    
 }
 

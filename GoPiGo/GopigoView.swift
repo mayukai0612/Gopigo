@@ -8,6 +8,7 @@
 
 import SpriteKit
 import UIKit
+import WSCoachMarksView
 
 class GopigoView: UIViewController,UIWebViewDelegate {
     
@@ -18,7 +19,11 @@ class GopigoView: UIViewController,UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Makes web view adjust websites properly with navigation bar height
+       // hide the navigation bar
+        self.navigationController?.navigationBarHidden = true
+
+        
+         //Makes web view adjust websites properly with navigation bar height
         self.automaticallyAdjustsScrollViewInsets = false
         
         
@@ -26,111 +31,141 @@ class GopigoView: UIViewController,UIWebViewDelegate {
            self.cameraWebView.delegate = self
            self.loadWebsite()
         
+        //add gestures
             self.addGestures()
         
-        // Configure the stick view.
-        let scene = GopigoScene(size: self.view.bounds.size)
-        scene.backgroundColor = .white
-        if let skView = self.stickView as? SKView {
-            
-            skView.backgroundColor = UIColor.clear
-        //    skView.showsFPS = true
-        //    skView.showsNodeCount = true
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            /* Set the scale mode to scale to fit the window */
-            //scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
-        }
-  
-        
-    }
-    
-    
-    
-    override var shouldAutorotate : Bool {
-        return true
-    }
-    
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask  {
+       // force landscape
+     //   let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+   //     UIDevice.currentDevice().setValue(value, forKey: "orientation")
+     //   setStickView()
+       
      
-          //  return UIInterfaceOrientationMask.landscape
         
-        return [UIInterfaceOrientationMask.landscapeLeft, UIInterfaceOrientationMask.landscapeRight]
+        print(UIDevice.currentDevice().orientation.isValidInterfaceOrientation)
+    }
+    
+//    
+//    override func shouldAutorotate() -> Bool {
+//        return true
+//    }
+  
+    
 
-    }
-    
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        return UIInterfaceOrientation(rawValue: 4)!
-       // return landscapeLeft
-    }
-    
-   // override func UIInterfaceOrientationIsLandscape() ->Bool
-   // {
+    //change the orientation of device to landscapeleft
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-   // }
+        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+       
+        self.stickView.subviews.forEach({ $0.removeFromSuperview() })
+        self.setStickView()
+        
+        let cgrect = CGRect(x: self.view.frame.maxX - 200, y: 100, width: 190, height: 150)
+        let string = "Use this joy stick to Control the detection car "
+        var coachMarks = [[String:AnyObject]]()
+        coachMarks = [["rect" :  NSValue(CGRect: cgrect), "caption": string]]
+        let wSCoachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks as [AnyObject])
+        self.view.addSubview(wSCoachMarksView)
+        wSCoachMarksView.start()
+        
+    }
     
-    
+    func canRotate() -> Void {}
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
+   // override var prefersStatusBarHidden : Bool {
+//        return true
+//    }
+    
+    func setStickView()
+    {
+        // Configure the stick view.
+        let scene = GopigoScene(size: self.view.bounds.size)
+        scene.backgroundColor = UIColor.whiteColor()
+        if let skView = self.stickView as? SKView {
+            
+            skView.backgroundColor = UIColor.clearColor()
+            //    skView.showsFPS = true
+            //    skView.showsNodeCount = true
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
+            /* Set the scale mode to scale to fit the window */
+            //scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
+
+    
+    }
     }
     
-    // Helper function to talk to our WebView and load a URL via string
+    
+   //  Helper function to talk to our WebView and load a URL via string
     func loadWebsite() {
         // if let web = self.webview {
         
         // Prepare URL request and pass to web view
-        let url = NSURL(string: "http://www.google.com")
-        let request = NSURLRequest(url: url! as URL)
-         self.cameraWebView.loadRequest(request as URLRequest)
+        //MARK: - Change camera video stream Url here
+        let url = NSURL(string: "http://118.139.79.44:98")
+        let request = NSURLRequest(URL: url!)
+        self.cameraWebView.loadRequest(request)
         //  }
     }
     
     // MARK: - UIWebViewDelegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webViewDidStartLoad(webView: UIWebView) {
         // Indicate that app is using the network
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webViewDidFinishLoad(webView: UIWebView) {
         // Indicate app has finished using network
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        //UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         // Update title to use page title
         // self.title = webView.stringByEvaluatingJavaScript(from: "document.title")
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        self.title = webView.stringByEvaluatingJavaScriptFromString("document.title")
     }
     
     //add gestures to stick view
     func addGestures()
     {
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector(("handleSwipes:")))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector(("handleSwipes:")))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GopigoView.handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GopigoView.handleSwipes(_:)))
         
-        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
-        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+        leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
+        rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
         
-        self.cameraWebView.addGestureRecognizer(leftSwipe)
-        self.cameraWebView.addGestureRecognizer(rightSwipe)
+        self.stickView.addGestureRecognizer(leftSwipe)
+        self.stickView.addGestureRecognizer(rightSwipe)
     }
     
-    //
+    //Mount control
     func handleSwipes(sender:UISwipeGestureRecognizer) {
-        if (sender.direction == .left) {
+        let moveControl =   CarControl()
+        //MARK: - change Mount Control Url here
+        let url = "http://118.139.79.44:8083/"
+        
+        if (sender.direction == .Left) {
             print("Swipe Left")
-          
+            moveControl.MountControl(url + "leftServo")
+            
         }
         
-        if (sender.direction == .right) {
+        if (sender.direction == .Right) {
             print("Swipe Right")
+            moveControl.MountControl(url + "rightServo")
            
         }
     }
+    
+    
 }
 
 
